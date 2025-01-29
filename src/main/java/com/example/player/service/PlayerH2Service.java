@@ -42,9 +42,9 @@ public class PlayerH2Service implements PlayerRepository {
 
     public Player addPlayer(Player player) {
         db.update("insert into team (playername,jerseynumber,role) values(?,?,?)", player.getPlayerName(),
-                player.getJerseyName(), player.getRole());
+                player.getJerseyNumber(), player.getRole());
         return db.queryForObject("select * from team where playername=? and jerseynumber=? and role=?",
-                new PlayerRowMapper(), player.getPlayerName(), player.getJerseyName(), player.getRole());
+                new PlayerRowMapper(), player.getPlayerName(), player.getJerseyNumber(), player.getRole());
     }
 
     @Override
@@ -52,14 +52,14 @@ public class PlayerH2Service implements PlayerRepository {
         if (player.getPlayerName() != null) {
             db.update("update team SET playername=? WHERE playerid=?", player.getPlayerName(), id);
         }
-        if (player.getJerseyName() != null) {
-            db.update("update team SET jerseynumber=? WHERE playerid=?", player.getJerseyName(), id);
+        if (player.getJerseyNumber() != 0) {
+            db.update("update team SET jerseynumber=? WHERE playerid=?", player.getJerseyNumber(), id);
         }
         if (player.getRole() != null) {
             db.update("update team SET role=? WHERE playerid=?", player.getRole(), id);
         }
         return db.queryForObject("select * from team where playername=? and jerseynumber=? and role=?",
-                new PlayerRowMapper(), player.getPlayerName(), player.getJerseyName(), player.getRole());
+                new PlayerRowMapper(), player.getPlayerName(), player.getJerseyNumber(), player.getRole());
 
     }
 

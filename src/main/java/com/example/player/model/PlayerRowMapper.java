@@ -9,7 +9,7 @@ public class PlayerRowMapper implements RowMapper<Player> {
     public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Player(rs.getInt("playerId"),
                 rs.getString("playerName"),
-                rs.getString("jerseyNumber"),
+                rs.getInt("jerseyNumber"),
                 rs.getString("role"));
 
     }

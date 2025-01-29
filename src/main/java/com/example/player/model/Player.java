@@ -6,13 +6,14 @@ import java.util.*;
 public class Player {
     private int playerId;
     private String playerName;
-    private String jerseyName;
+    private int jerseyNumber;
     private String role;
 
-    public Player(int playerId, String playerName, String jerseyName, String role) {
+    public Player(int playerId, String playerName, int jerseyNumber, String role) {
+
         this.playerId = playerId;
         this.playerName = playerName;
-        this.jerseyName = jerseyName;
+        this.jerseyNumber = jerseyNumber;
         this.role = role;
     }
 
@@ -24,8 +25,8 @@ public class Player {
         return this.playerName;
     }
 
-    public String getJerseyName() {
-        return this.jerseyName;
+    public int getJerseyNumber() {
+        return this.jerseyNumber;
     }
 
     public String getRole() {
@@ -40,8 +41,8 @@ public class Player {
         this.playerName = name;
     }
 
-    public void setJerseyName(String name) {
-        this.jerseyName = name;
+    public void setJerseyNumber(int name) {
+        this.jerseyNumber = name;
     }
 
     public void setRole(String role) {
